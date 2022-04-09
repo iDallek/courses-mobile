@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Button } from 'react-native';
-import CourseCard from '../components/CourseCard';
-import { fetchData } from '../helper/axios';
+import CourseCard from '../../components/CourseCard';
+import { fetchData } from '../../helper/axios';
 
 function HomePage({ navigation }) {
   const [courses, setCourses] = React.useState([]);
@@ -22,15 +22,19 @@ function HomePage({ navigation }) {
       <View>
         {courses?.map((course) => {
           const courseCardProps = {
-            id: course.idcurso,
+            id: course.id,
+            idCourse: course.idcurso,
             title: course.ds_titulo,
             description: course.ds_descricao,
-            onPress: () => navigation.navigate('CourseEdit', {
-              id: course.idcurso,
-            }),
           };
 
-          return <CourseCard key={course.idcurso} content={courseCardProps} />;
+          return (
+            <CourseCard
+              key={course.idcurso}
+              navigation={navigation}
+              content={courseCardProps}
+            />
+          );
         })}
       </View>
     </View>
