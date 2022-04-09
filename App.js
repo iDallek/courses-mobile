@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomePage from './pages/Home/index';
 import EditCourse from './pages/EditCourse';
+import AddCourse from './pages/AddCourse';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,13 @@ export default function App() {
           component={EditCourse}
           options={{
             title: 'Alterar Curso',
+          }}
+        />
+        <Stack.Screen
+          name="Add"
+          component={AddCourse}
+          options={{
+            title: 'Adicionar Curso',
           }}
         />
       </Stack.Navigator>
