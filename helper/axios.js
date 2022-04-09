@@ -30,6 +30,19 @@ const fetchDataWithParams = async (url, params) => {
   return response;
 };
 
+const putData = async (url, param, data) => {
+  let response;
+
+  await axios.put(`${url}/${param}`, data)
+    .then((res) => { response = res.data; })
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log('putData error: ', err);
+    });
+
+  return response;
+};
+
 export {
-  fetchData, fetchDataWithParams,
+  fetchData, fetchDataWithParams, putData,
 };
