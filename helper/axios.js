@@ -56,6 +56,21 @@ const removeData = async (url, param) => {
   return response;
 };
 
+const postData = async (url, data) => {
+  let response;
+
+  await axios.post(url, data)
+    .then((res) => {
+      response = res.data;
+    })
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log('postData error: ', err);
+    });
+
+  return response;
+};
+
 export {
-  fetchData, fetchDataWithParams, putData, removeData,
+  fetchData, fetchDataWithParams, putData, removeData, postData,
 };
