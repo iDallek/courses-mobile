@@ -1,18 +1,24 @@
 import React, { View, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native-web';
 
 function CourseCard({
-  content: {
-    id, title, description, onPress,
+  navigation, content: {
+    id, idCourse, title, description,
   },
 }) {
   return (
-    <View
-      onPress={onPress}
+    <TouchableOpacity
+      onPress={
+        () => navigation.navigate('Edit', {
+          id,
+          navigation,
+        })
+    }
       role="button"
     >
       <View>
         <Text>
-          { `# ${id}` }
+          { `# ${idCourse}` }
         </Text>
         <Text>
           { title }
@@ -21,7 +27,7 @@ function CourseCard({
           { description }
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
