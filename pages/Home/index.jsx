@@ -18,7 +18,7 @@ function HomePage({ navigation }) {
 
   return (
     <View>
-      <Button title="Adicionar" />
+      <Button title="Adicionar" onPress={() => navigation.navigate('Add')} />
       <View>
         {courses?.map((course) => {
           const courseCardProps = {
