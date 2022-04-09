@@ -40,7 +40,7 @@ function EditCourse({ navigation, route }) {
       ds_descricao: description,
     });
 
-    navigation.navigate('Home');
+    navigation.replace('Home');
   };
 
   const [toggleModal, setToggleModal] = React.useState(styles.none);
@@ -48,7 +48,7 @@ function EditCourse({ navigation, route }) {
   const removeSubmit = async () => {
     await removeData('https://courses-crud-api.herokuapp.com/curso', id);
 
-    navigation.navigate('Home');
+    navigation.replace('Home');
   };
 
   return (
