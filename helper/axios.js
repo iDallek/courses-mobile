@@ -15,6 +15,21 @@ const fetchData = async (url) => {
   return response;
 };
 
+const fetchDataWithParams = async (url, params) => {
+  let response;
+
+  await axios.get(`${url}/${params}`)
+    .then((res) => {
+      response = res.data;
+    })
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log('fetchDataWithParams error: ', err);
+    });
+
+  return response;
+};
+
 export {
-  fetchData,
+  fetchData, fetchDataWithParams,
 };
