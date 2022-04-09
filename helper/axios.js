@@ -43,6 +43,19 @@ const putData = async (url, param, data) => {
   return response;
 };
 
+const removeData = async (url, param) => {
+  let response;
+
+  await axios.delete(`${url}/${param}`)
+    .then((res) => { response = res.data; })
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log('removeData error: ', err);
+    });
+
+  return response;
+};
+
 export {
-  fetchData, fetchDataWithParams, putData,
+  fetchData, fetchDataWithParams, putData, removeData,
 };
