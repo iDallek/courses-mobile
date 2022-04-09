@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import CourseCard from '../../components/CourseCard';
 import { fetchData } from '../../helper/axios';
 
@@ -19,7 +19,7 @@ function HomePage({ navigation }) {
   return (
     <View>
       <Button title="Adicionar" onPress={() => navigation.navigate('Add')} />
-      <View>
+      <View style={styles.container}>
         {courses?.map((course) => {
           const courseCardProps = {
             id: course.id,
@@ -40,5 +40,13 @@ function HomePage({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default HomePage;
